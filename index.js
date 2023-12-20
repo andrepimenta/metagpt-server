@@ -34,26 +34,7 @@ async function chatgpt(messages) {
 }
 
 app.get("/", async (req, res) => {
-  const messages = [
-    {
-      role: "system",
-      content: `Here are the rules:
-        - Use the window.ethereum provider by metamask only\\n
-        - If it needs my address, use ethereum.selectedAddress and never set gas unless explicitly asked for\\n
-        - If you need to put variables that you don't know, ask me back what you should put, in this case, don't show anything else other than the question. \n
-        - If you know all variables, the response should only contain the line of code which is the object inside "request", in this case, don't show anything else other than the line of code. \n
-        - If you need contract addresses, you find them the actual value. If you need other info like deadlines or minimum amounts, assume there are none. \n
-        - Always put everything in the window.ethereum code. No comments on the text or code. Don't show anything else on the response, no extra notes or text.
-        `,
-    },
-    {
-      role: "user",
-      content: `I want to swap 1 ETH for USDT on mainnet.`,
-    },
-  ];
-
-  const response = await chatgpt(messages);
-  res.send(response);
+  res.send("The API is live!");
 });
 
 app.post("/", async (req, res) => {
